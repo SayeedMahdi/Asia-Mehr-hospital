@@ -1,0 +1,38 @@
+<html>
+
+<head>
+
+       <title>Login form</title>
+      <link rel="stylesheet" type="text/css" href="/css/login.css">
+      <link rel="stylesheet" href="/css/fontawesome.min.css">
+
+</head>
+
+<body>
+
+      <br> <br>
+      <div class="loginBox">
+            <h1 id="ti">Welcome to Asia Mehr Hospital</h1>
+
+
+            <h1>Sign in</h1>
+
+            <form method="POST" action="/api/createUser">
+                  
+                  <p class="em">Email<span style="color: red;">*</span></p>
+                  <input type="email" name="email" class="em" required placeholder="&#xf0e0 Enter Your email "
+                        style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  <p>Password <span style="color: red;">*</span></p>
+                  <input type="password" name="password" required placeholder="&#xf084 Enter password "
+                        style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+              
+                
+                  <input type="submit" name="sub" value="Login">
+
+
+
+            </form>
+      </div>
+</body>
+
+</html>

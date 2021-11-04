@@ -5,12 +5,11 @@ import homepageController from "../controllers/homepageController";
 init all web routes
  */
 
-let router = express.Router();
+const  router = express.Router();
 
-let initAllWebRoutes = (app) =>{
-    router.get("/", homepageController.getHomepage);
-
-    return app.use("/", router);
-};
-
-module.exports = initAllWebRoutes;
+router.get("/home",homepageController.getHomepage);
+router.get("/signup", homepageController.signupform);
+router.get("/loginForm" , homepageController.loginform);
+router.get("/RegisterForm" , homepageController.registerform);
+router.post("/createUser",homepageController.createUser);
+module.exports = router;

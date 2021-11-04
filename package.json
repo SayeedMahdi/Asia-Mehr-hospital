@@ -18,17 +18,22 @@
     "messenger",
     "bot"
   ],
-  "author": "Hary Pham",
+  "author": "sayeed mahdi",
   "license": "ISC",
   "dependencies": {
-    "dotenv": "^8.2.0",
-    "ejs": "^3.1.3",
-    "express": "^4.17.1"
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.8.0",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.14"
   },
   "repository": {
     "type": "git",
