@@ -14,7 +14,7 @@ body{
     height: auto;
 /*    background: #0d0;*/
     background:transparent;
-    background-color:  #f6feffa1;
+    background-color:  #f6feff94;
     color: rgb(15, 15, 14);
     position: absolute;
     top: 50%;
@@ -106,3 +106,8 @@ h1#ti{
     font-family: helvetica;
 }
 
+
+.flash-error {
+    color: rgb(247, 12, 12);
+    
+}

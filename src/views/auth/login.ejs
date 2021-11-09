@@ -12,22 +12,30 @@
 
       <br> <br>
       <div class="loginBox">
+            <% if (errors !=="" ){%>
+                  <% errors.forEach((item)=>{%>
+                        <div class="alert-danger">
+                              <%- item %>
+                        </div>
+                        <%})%>
+                <%}%>
             <h1 id="ti">Welcome to Asia Mehr Hospital</h1>
-
 
             <h1>Sign in</h1>
 
-            <form method="POST" action="/api/createUser">
-                  
+            <form method="POST" action="/api/login">
                   <p class="em">Email<span style="color: red;">*</span></p>
-                  <input type="email" name="email" class="em" required placeholder="&#xf0e0 Enter Your email "
-                        style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
+                  <input type="email" name="email" class="em" placeholder="&#xf0e0 Enter Your email "
+                        style="font-family: 'Font Awesome 5 free'; font-weight: 700;" >
                   <p>Password <span style="color: red;">*</span></p>
-                  <input type="password" name="password" required placeholder="&#xf084 Enter password "
+                  <input type="password" name="password"  placeholder="&#xf084 Enter password "
                         style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
-              
-                
-                  <input type="submit" name="sub" value="Login">
+
+                  <div>
+                        <a href="/forgetpassword" style="color: blue;">Forget password???</a>
+                        <br> <br>
+                  </div>
+                  <input type="submit" name="sub" value="Log in">
 
 
 

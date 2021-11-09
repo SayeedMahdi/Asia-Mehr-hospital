@@ -5,7 +5,9 @@ import initWebRoutes from "./routes/web";
 const cookie_parser =require("cookie-parser");
 const connect_flash=require("connect-flash");
 const express_session=require("express-session");
-const express_validator=require("express-validator");
+const configSession =require("./config/session")
+import passport from "passport";
+
 let app = express();
 
 
@@ -16,15 +18,11 @@ app.use(cookie_parser("secret"));
 //conect flash
 app.use(connect_flash())
 //config express session
-app.use(express_session({
-   secret:"secret",
-   resave:true,
-   saveUninitialized:false,
-   cookie:{
-      maxAge:1000*60 *60*24
-   }
-}));
+configSession (app);
 
+
+app.use(passport.initialize());
+app.use(passport.session());
 //config view Engine
 configViewEngine(app);
 
