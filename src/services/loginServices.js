@@ -12,7 +12,7 @@ let findByEmail = (emailIninput) => {
             if (!user) {
                 reject(`We can Not find any user with this email: ${emailIninput}`)
             }
-            console.log(user);
+          
             resole(user);
         } catch (error) {
             console.log(error.message)
@@ -32,7 +32,7 @@ let findUserByid = (userid) =>{
             where:{id:userid}
         });
         if(!user) reject("User with that id was not found.");
-        console.log(user)
+     
         return resole(user);
     }catch(error){
         console.log(error);

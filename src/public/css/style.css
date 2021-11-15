@@ -13,21 +13,20 @@ body {
   body a {
     text-decoration: none; }
 
-.container {
-  margin: 0 20px; }
+
 
 .header {
-  height: 600px;
+  height: 500px;
   border-bottom: 2px solid #ccc; }
   .header .top-nav {
     height: 100px;
     display: flex;
     flex-direction: row; }
     .header .top-nav .logo {
-      width: 50%;
+      width: 70%;
       display: flex;
       flex-direction: row;
-      margin-top: 20px; }
+      margin-top: 10px; }
       .header .top-nav .logo img {
         margin-left: 10px;
         height: 100%; }
@@ -57,18 +56,20 @@ body {
       .header .top-nav .support i {
         padding-right: 5px; }
   .header .image-nav {
-    height: 400px;
     margin: 0 -20px;
+    height: 500px;
     background-image: url("../images/back.jpg");
     background-repeat: no-repeat;
+    background-position: center center;
     background-size: cover;
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    width: auto;
+   }
     .header .image-nav .title-image {
-      font-size: 35px;
+      font-size: 25px;
       margin: 120px 0 30px 0; 
-    
       border-radius: 30px;
       padding: 10px 30px;
       
@@ -114,6 +115,7 @@ body {
   height: 400px;
   width: 100%;
   display: flex;
+  margin-top: 100px;
   flex-direction: column;
   border-bottom: 2px solid #ccc; }
   .popular-specialty .title-section, .hospital-and-clinic .title-section, .doctors .title-section, .handbook .title-section {
@@ -146,6 +148,9 @@ body {
           color: black; }
           .popular-specialty .title-section .btn-view a span:hover, .hospital-and-clinic .title-section .btn-view a span:hover, .doctors .title-section .btn-view a span:hover, .handbook .title-section .btn-view a span:hover {
             color: white; }
+            .popular-specialty {
+              margin-top: 200px;
+            }
   .popular-specialty .slide, .hospital-and-clinic .slide, .doctors .slide, .handbook .slide {
     height: 300px; }
     .popular-specialty .slide .my-slick-slide, .hospital-and-clinic .slide .my-slick-slide, .doctors .slide .my-slick-slide, .handbook .slide .my-slick-slide {
@@ -234,6 +239,9 @@ body {
       .handbook .slide .handbook-slide .div-slide .info-post {
         padding: 5px;
         display: flex;
+        max-height: 200px;
+        overflow: auto;
+       
         flex-direction: column; }
         .handbook .slide .handbook-slide .div-slide .info-post .title-post {
           font-weight: 600; }

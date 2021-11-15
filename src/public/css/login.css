@@ -111,3 +111,8 @@ h1#ti{
     color: rgb(247, 12, 12);
     
 }
+.alert-danger{
+    color:red;
+    margin: 0px;
+    padding-bottom: 10px;
+}

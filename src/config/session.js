@@ -39,7 +39,7 @@ let configSession = (app) => {
         store: sessionStore,
         resave: true,
         saveUninitialized: false,
-        cookie : { httpOnly: false, secure : false, maxAge : (24 * 60 * 60 * 1000)} // 1day
+        cookie : { httpOnly: false, secure : false, maxAge : (5 * 60 * 1000)} // 1day
     }))
 };
 

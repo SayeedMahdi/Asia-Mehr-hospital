@@ -53,7 +53,15 @@ exports.registerform = async (req, res) => {
 
     });
 }
+//adminpage
+exports.adminpage = async (req,res) => {
+    res.render("admin/index");
+}
 //login form 
 exports.loginform = async (req, res) => {
     res.render("auth/login",{errors: req.flash("errors")});
+}
+exports.adminlogin= async(req,res)=>{
+   
+    res.render("admin/signin",{errors :req.flash("errors")});
 }

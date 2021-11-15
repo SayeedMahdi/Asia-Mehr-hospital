@@ -20,19 +20,27 @@ module.exports = {
       password: {
         type: Sequelize.STRING
       },
+      role_id: {
+        type: Sequelize.INTEGER
+      },
       address: {
         type: Sequelize.STRING
       },
       createdAt: {
-        allowNull: true,
+        type: Sequelize.DATE
+      },
+      deletedAt: {
+        type: Sequelize.DATE
+      },
+      updateAt: {
+        type: Sequelize.DATE
+      },
+      createdAt: {
+        allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        allowNull: true,
-        type: Sequelize.DATE
-      },
-      deleteAt: {
-        allowNull: true,
+        allowNull: false,
         type: Sequelize.DATE
       }
     });

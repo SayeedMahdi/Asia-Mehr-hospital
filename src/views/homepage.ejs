@@ -8,24 +8,49 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Load Jquery, Slick slider-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- Load Jquery, Slick slider -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/slick-slide.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 
-<body>
-<div>
-    
-</div>
+<body style="background-color:#1ba395 ">
+    <div>
+
+    </div>
     <div class="container">
         <section class="header">
-            <div class="newnav">
-                <div class="top-nav">
+            <div class="newnav ">
+                <div class="top-nav text-dark">
+                    <div class="collapse " id="navbarToggleExternalContent">
+                        <div class="bg-dark p-4 ">
+                            <a class="text-white h7" href="loginform">Login</a><br> <hr style="color: white;">
+                            <a class="text-white h7" href="RegisterForm">Register</a><br> <hr style="color: white;">
+                            <a class="text-white h7" href="admin/signin">Admin</a><br> <hr style="color: white;">
+                            <form action="/api/logout" method="POST">
+                            <input type="submit" class="text-dark h7" href="" value="Logout"><br> <hr style="color: rgb(49, 45, 45);">
+                        </form>
+
+                        </div>
+                    </div>
+                    <nav class="navbar navbar-dark  ">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarToggleExternalContent"
+                                aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                                aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+                    </nav>
                     <div class="logo">
-                        <i class="fas fa-bars"></i>
-                        <img src="/images/asia.jpg" alt="logo-website">
+                        <img src="/images/asia.png" alt="logo-website">
                     </div>
                     <div class="intro">
                         <div class="intro-icon">
@@ -49,7 +74,9 @@
                     <div class="support">
                         <span><i class="fas fa-question-circle"></i>Support</span>
                     </div>
+
                 </div>
+
             </div>
             <div class="image-nav">
                 <div class="title-image">
@@ -57,7 +84,7 @@
                 </div>
                 <div class="btn-search">
                     <i class="fas fa-search"></i>
-                    <input class="input-search" type="text" name="btnSearch" placeholder="Search here..." >
+                    <input class="input-search" type="text" name="btnSearch" placeholder="Search here...">
                 </div>
             </div>
             <div class="bottom-nav">
@@ -87,7 +114,7 @@
                 </div>
             </div>
             <div class=" slide">
-               
+
                 <div class="my-slick-slide">
                     <div class="div-slide">
                         <div class="image-slide ">
