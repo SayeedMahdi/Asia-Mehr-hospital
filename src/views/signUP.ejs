@@ -2,9 +2,9 @@
 
 <head>
 
-       <title>Create user</title>
+      <title>Create user</title>
       <link rel="stylesheet" type="text/css" href="/css/login.css">
-      <link rel="stylesheet" href="/css/fontawesome.min.css">
+
 
 </head>
 
@@ -12,21 +12,29 @@
 
 
       <% if (errors !==""){%>
-            <% errors .forEach((item) =>{%>
-                <div class="alert-danger">
-                    <%- item %>
-                </div>
-              <%})%>
-    
-         <%}%>   
+      <% errors .forEach((item) =>{%>
+      <div class="alert-danger">
+            <%- item %>
+      </div>
+      <%})%>
+
+      <%}%>   
       <br> <br>
-      <div class="loginBox">
-            <h1 id="ti">Welcome to Asia Mehr Hospital</h1>
-
-
+      <div class="loginBox" >
+            <div class="img" style="padding-left: 18%;">
+            <img src="/assets/images/mahdi.jpg"  id="myimage" alt="user" style="    border: 1px solid #C400D7;
+            border-radius: 50%;
+            padding: 7px;
+            height: 130px;
+            width: 130px;
+            "
+            >
+            <i class="fas fa-camera"  onclick="document.getElementById('file').click();"  style="z-index: 9999; margin:-20px 0 0 -23%; padding: 3px; background-color: white; border-radius: 50%; font-size: 20px;  border: 1px solid rgba(56, 53, 56, 0.986) ; cursor: pointer;"></i>
+            </div>
             <h1>Sign Up</h1>
 
-            <form method="POST" action="/api/createUser">
+            <form method="POST" action="/api/createUser" enctype="multipart/form-data">
+                  <input type="file" style="display: none;" name="imag" id="file" >
                   <p>First name</p>
                   <input type="text" name="firstName" required placeholder="&#xf4fc Enter Your name "
                         style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
@@ -42,12 +50,7 @@
                   <p>Password <span style="color: red;">*</span></p>
                   <input type="password" name="password" required placeholder="&#xf084 Enter password "
                         style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
-                  <label for="roleplay">Privelage: </label>
-                  <select name="roleplay" id="role">
-                        <option value="1">Admins</option>
-                        <option value="1">Doctors</option>
-                        <option value="2">Users</option>
-                  </select>
+                 
                   <br><br>
                   <input type="submit" name="sub" value="Sign up">
 
@@ -55,6 +58,28 @@
 
             </form>
       </div>
+      <script src="https://kit.fontawesome.com/d623c94f48.js" crossorigin="anonymous"></script>
+      <script>
+            document.getElementById('file').onchange = function (evt) {
+                  var tgt = evt.target || window.event.srcElement,
+                        files = tgt.files;
+
+                  // FileReader support
+                  if (FileReader && files && files.length) {
+                        var fr = new FileReader();
+                        fr.onload = function () {
+                              document.getElementById("myimage").src = fr.result;
+                        }
+                        fr.readAsDataURL(files[0]);
+                  }
+
+                  // Not supported
+                  else {
+                        // fallback -- perhaps submit the input to an iframe and temporarily store
+                        // them on the server until the user's session ends.
+                  }
+            }
+      </script>
 </body>
 
 </html>

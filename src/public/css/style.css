@@ -162,7 +162,7 @@ body {
         padding-right: 10px; }
         .popular-specialty .slide .my-slick-slide .div-slide .image-slide, .hospital-and-clinic .slide .my-slick-slide .div-slide .image-slide, .doctors .slide .my-slick-slide .div-slide .image-slide, .handbook .slide .my-slick-slide .div-slide .image-slide {
           height: 200px;
-          background-image: url("../images/speciality/speciality1.jpg");
+       
           background-position: center center;
           background-repeat: no-repeat;
           background-size: 325px 200px; }

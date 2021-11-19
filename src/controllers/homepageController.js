@@ -7,7 +7,7 @@ exports.getHomepage = (req, res) => {
 };
 //sign up form
 exports.signupform = (req, res) => {
-    return res.render("signUp.ejs");
+    return res.render("signUp.ejs",{errors: req.flash("errors")});
 }
 //Rigister 
 exports.createUser = async (req, res) => {

@@ -29,7 +29,7 @@ configViewEngine(app);
 //init all web routes
 app.use("/api",initWebRoutes)
 
-let port = process.env.PORT || 8080;
+let port = process.env.PORT || 8000;
 
 app.listen(port, ()=>{
    console.log(`App is running at the port ${port}`);
