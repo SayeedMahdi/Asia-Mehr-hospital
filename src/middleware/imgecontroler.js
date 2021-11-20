@@ -1,10 +1,10 @@
 const multer = require('multer');
-
+const path =require("path");
 
 //make an storage 
-var storage = multer.diskStorage({
+const storage = multer.diskStorage({
     destination: (req, file, callBack) => {
-        callBack(null, './public/userimage/')     // './public/images/' directory name where save the file
+        callBack(null, './src/public/usersimage/')     // './public/images/' directory name where save the file
     },
     filename: (req, file, callBack) => {
         callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))

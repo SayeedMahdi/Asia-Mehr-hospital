@@ -16,7 +16,7 @@ initfacebook();
 initgoogleauth();
 const  router = express.Router();
 
-router.post("")
+
 router.get("/signUp", homepageController.signupform)
 router.post("/login",passport.authenticate("local-user",{
 
@@ -53,7 +53,7 @@ router.get('/auth/google',
   passport.authenticate('google', { scope : ['profile', 'email'] }));
 
   router.get('/google/callback', 
-  passport.authenticate('google', { failureRedirect: '/admin/signin'  }),
+  passport.authenticate('google', { failureRedirect: '/api/admin/signin'  }),
   function(req, res) {
     // Successful authentication, redirect success.
     res.redirect('/api/admin');

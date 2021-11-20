@@ -1,6 +1,6 @@
 const db = require("../models");
 const bcrypt=require("bcrypt");
-exports.createuser = async (newuser) => {
+exports.createuser = async (newuser,imagepath) => {
     return new Promise(async (resolve, reject) => {
         try {
             //cheak email if exist 
@@ -12,7 +12,9 @@ exports.createuser = async (newuser) => {
                 
             } else {
                 // hash user password
+                console.log(newuser)
                
+                newuser.photo =imagepath;
                 const salt = await bcrypt.genSalt(10);
                 const hashpassword = await bcrypt.hash(newuser.password, salt);
                 newuser.password=hashpassword;
