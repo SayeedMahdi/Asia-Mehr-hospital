@@ -16,7 +16,8 @@ createUser = async (req, res) => {
     let form = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email
+        email: req.body.email,
+        image1:req.body.image1
     }
     
     //cheack validtion
@@ -67,4 +68,8 @@ exports.loginform = async (req, res) => {
 exports.adminlogin= async(req,res)=>{
    
     res.render("admin/signin",{errors :req.flash("errors")});
+}
+//Doctors get page
+exports.alldoctors=async (req, res) =>{
+    res.render ("admin/contact");
 }

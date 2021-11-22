@@ -28,7 +28,7 @@ router.post("/login",passport.authenticate("local-user",{
 }));
 router.get("/loginForm",authcontroler.checklout , homepageController.loginform);
 router.get("/home",homepageController.getHomepage);
-router.post("/createUser",upload.single('image'),auth.vladition,homepageController.createUser);
+router.post("/createUser",auth.vladition,upload.single('image'),homepageController.createUser);
 router.post("/logout",authcontroler.logOut);
 router.get("/admin/signin",homepageController.adminlogin);
 router.get("/auth/facebook", passport.authenticate("facebook"));
@@ -58,4 +58,6 @@ router.get('/auth/google',
     // Successful authentication, redirect success.
     res.redirect('/api/admin');
   });
+  //Doctors get page
+  router.get("/doctors",homepageController.alldoctors);
 module.exports = router;

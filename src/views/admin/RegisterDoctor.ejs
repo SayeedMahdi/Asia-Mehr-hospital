@@ -5,36 +5,35 @@
       <title>Create user</title>
       <link rel="stylesheet" type="text/css" href="/css/login.css">
 
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 </head>
 
 <body>
       <br> <br>
       <div class="loginBox" >
             <div class="img" style="padding-left: 18%;">
-            <img src="/images/avatar.jpg"  id="myimage" alt="user" name="image1" style="border: 1px solid #C400D7;
+            <img src="/assets/images/mahdi.jpg"  id="myimage" alt="user" style="    border: 1px solid #C400D7;
             border-radius: 50%;
             padding: 7px;
             height: 130px;
             width: 130px;
             "
             >
+           
             <i class="fas fa-camera"  onclick="document.getElementById('file').click();"  style="z-index: 9999; margin:-20px 0 0 -23%; padding: 3px; background-color: white; border-radius: 50%; font-size: 20px;  border: 1px solid rgba(56, 53, 56, 0.986) ; cursor: pointer;"></i>
             </div>
-            <div class="alert" style="font-size: 12; height: 25px; padding: 0; margin: 0px;">
-                  <% if (errors !==""){%>
-                        <% errors .forEach((item) =>{%>
-                        <div class="alert-danger" style="display: inline; ">
-                              <%- item %>
-                        </div>
-                        <%})%>
-                        <%}%>   
-            </div>
-           
+            <% if (errors !==""){%>
+                <% errors .forEach((item) =>{%>
+                <div class="alert-danger">
+                      <%- item %>
+                </div>
+                <%})%>
+          
+                <%}%>   
             <h1>Sign Up</h1>
 
             <form method="POST" action="/api/createUser" enctype="multipart/form-data">
-                  <input type="file" style="display: none;" name="image" id="file" required>
+                  <input type="file" style="display: none;" name="image" id="file" >
                   <p>First name</p>
                   <input type="text" name="firstName" required placeholder="&#xf4fc Enter Your name "
                         style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
