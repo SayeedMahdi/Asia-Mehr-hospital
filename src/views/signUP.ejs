@@ -34,7 +34,7 @@
             <h1>Sign Up</h1>
 
             <form method="POST" action="/api/createUser" enctype="multipart/form-data">
-                  <input type="file" style="display: none;" name="image" id="file" required>
+                  <input type="file" style="display: none;" name="image" id="file" >
                   <p>First name</p>
                   <input type="text" name="firstName" required placeholder="&#xf4fc Enter Your name "
                         style="font-family: 'Font Awesome 5 free'; font-weight: 700;">
@@ -54,9 +54,6 @@
                  
                   <br><br>
                   <input type="submit" name="sub" value="Sign up">
-
-
-
             </form>
       </div>
       <script src="fontawesome-free-5.15.4-web/css/all.css" crossorigin="anonymous"></script>
@@ -64,7 +61,6 @@
             document.getElementById('file').onchange = function (evt) {
                   var tgt = evt.target || window.event.srcElement,
                         files = tgt.files;
-
                   // FileReader support
                   if (FileReader && files && files.length) {
                         var fr = new FileReader();
@@ -73,9 +69,9 @@
                         }
                         fr.readAsDataURL(files[0]);
                   }
-
                   // Not supported
                   else {
+                        errors="you did not upload your image"
                         // fallback -- perhaps submit the input to an iframe and temporarily store
                         // them on the server until the user's session ends.
                   }

@@ -1,3 +1,4 @@
+import db from "../models"
 const { validationResult } = require("express-validator");
 const newuser = require("../services/userServices");
 const authlog=require("../services/loginServices");
@@ -35,7 +36,7 @@ createUser = async (req, res) => {
     }
     try {
         const user = req.body;
-        const path=req.file.path;
+        const path=req.file.filename;
         const message = await newuser.createuser(user,path);
         console.log(message);
         return res.redirect("/api/home");
@@ -72,4 +73,21 @@ exports.adminlogin= async(req,res)=>{
 //Doctors get page
 exports.alldoctors=async (req, res) =>{
     res.render ("admin/contact");
+}
+ //all users
+ exports.allusers=async (req, res) =>{
+     const user =await db.User.findAll();
+    console.log(user.photo);
+    res.render ("admin/allusers",{ "users": user });
+}
+exports.getDoctorform = async (req,res )=>{
+    
+    res.render("admin/DoctorProfile", {
+        errors: req.flash("errors")
+    
+    });
+}
+//creat doctort
+exports.createDoctor = async (req,res) =>{
+
 }

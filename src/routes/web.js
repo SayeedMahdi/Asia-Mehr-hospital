@@ -1,3 +1,4 @@
+
 import express from "express";
 import homepageController from "../controllers/homepageController";
 import auth from "../validation/authvalidtion";
@@ -28,7 +29,10 @@ router.post("/login",passport.authenticate("local-user",{
 }));
 router.get("/loginForm",authcontroler.checklout , homepageController.loginform);
 router.get("/home",homepageController.getHomepage);
-router.post("/createUser",auth.vladition,upload.single('image'),homepageController.createUser);
+//create user
+router.post("/createUser",upload.single('image'),auth.vladition,homepageController.createUser);
+//create doctor
+router.post("/DoctorCreate",upload.single('image'),auth.vladition,homepageController.createDoctor);
 router.post("/logout",authcontroler.logOut);
 router.get("/admin/signin",homepageController.adminlogin);
 router.get("/auth/facebook", passport.authenticate("facebook"));
@@ -58,6 +62,11 @@ router.get('/auth/google',
     // Successful authentication, redirect success.
     res.redirect('/api/admin');
   });
+
+  //all users in system
+  router.get("/allusers",homepageController.allusers);
   //Doctors get page
   router.get("/doctors",homepageController.alldoctors);
+  //get Rigister Doctor
+  router.get("/DoctorProfile",homepageController.getDoctorform)
 module.exports = router;
