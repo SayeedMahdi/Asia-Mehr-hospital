@@ -1,4 +1,4 @@
-
+require('express-async-errors');
 import express from "express";
 import homepageController from "../controllers/homepageController";
 import auth from "../validation/authvalidtion";
@@ -8,6 +8,7 @@ import authcontroler, { checklogin, checklout } from "../controllers/authcontrle
 import initfacebook from "../controllers/passport/facebookStrategy"
 import initgoogleauth from "../controllers/passport/googleStrategy"
 import upload from "../middleware/imgecontroler"
+require("express")
 /*
 init all web routes
  */
@@ -32,7 +33,7 @@ router.get("/home",homepageController.getHomepage);
 //create user
 router.post("/createUser",upload.single('image'),auth.vladition,homepageController.createUser);
 //create doctor
-router.post("/DoctorCreate",upload.single('image'),auth.vladition,homepageController.createDoctor);
+router.post("/DoctorCreate",upload.single('image'),homepageController.createDoctor);
 router.post("/logout",authcontroler.logOut);
 router.get("/admin/signin",homepageController.adminlogin);
 router.get("/auth/facebook", passport.authenticate("facebook"));
@@ -64,9 +65,9 @@ router.get('/auth/google',
   });
 
   //all users in system
-  router.get("/allusers",homepageController.allusers);
+  router.get("/allusers",authcontroler.checkadmin,homepageController.allusers);
   //Doctors get page
-  router.get("/doctors",homepageController.alldoctors);
+  router.get("/doctors",authcontroler.checkadmin,homepageController.alldoctors);
   //get Rigister Doctor
   router.get("/DoctorProfile",homepageController.getDoctorform)
 module.exports = router;

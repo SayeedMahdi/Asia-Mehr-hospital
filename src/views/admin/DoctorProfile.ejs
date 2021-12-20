@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
     <!-- Custom Css -->
     <link rel="stylesheet" href="/assets/css/style.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
 </head>
 
 <body class="theme-blush">
@@ -658,36 +657,17 @@
                             </div>
                             <div class="body">
                                 <div class="row clearfix">
-                                    <div class="img">
-                                        <img src="/images/avatar.jpg" id="myimage" alt="user" name="image1" style="border: 1px solid #C400D7;
-                                    border-radius: 50%;
-                                    padding: 7px;
-                                    height: 130px;
-                                    width: 130px;
                                     
-                                    ">
-                                        <i class="fas fa-camera" onclick="document.getElementById('file').click();"
-                                            style=" position: absolute;     top: 166px;
-                                    left: 97px; padding: 3px;  background-color: white; border-radius: 50%; font-size: 20px;  border: 1px solid rgba(56, 53, 56, 0.986) ; cursor: pointer;"></i>
-                                    </div>
-                                    <div class="alert" style="font-size: 12; height: 25px; padding: 0; margin: 0px;">
-                                        <% if (errors !==""){%>
-                                              <% errors .forEach((item) =>{%>
-                                              <div class="alert-danger" style="display: inline; ">
-                                                    <%- item %>
-                                              </div>
-                                              <%})%>
-                                              <%}%>   
-                                  </div>
-                                    <form action="/api/DoctorCreate" method="POST" class="row g-3" >
+                               
+                                    <form method="POST" action="/api/DoctorCreate"   class="row g-3"   >
                                     
-                                        <input type="file" style="display: none; margin-top: 4px;" name="image" id="file" required>
+                                        <input type="file" style="display: none; margin-top: 4px;" name="image" id="file" >
                                         <div class="col-lg-4 col-md-12" >
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="First Name" required>
                                             </div>
                                         </div>
-                                        <div class="col-lg-4 col-md-12">
+                                        <div  >
                                             <div class="form-group">
                                                 <input type="text" class="form-control" placeholder="Last Name" required>
                                             </div>
@@ -725,10 +705,11 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <input type="submit" class="btn btn-primary" value="submit">
+                                           <button type="submit" id="btSubmit" class="btn btn-primary" formaction="/api/DoctorCreate">submit</button>
                                         </div>
                                     
                                     </form>
+                                   
                                 </div>
                             </div>
                         </div>
@@ -736,8 +717,11 @@
                 </div>
             </div>
         </div>
+       
     </section>
+   
     <script>
+      
         document.getElementById('file').onchange = function (evt) {
             var tgt = evt.target || window.event.srcElement,
                 files = tgt.files;
@@ -753,17 +737,33 @@
 
             // Not supported
             else {
-                errors = "you did not upload your image"
+                console.log( "you did not upload your image");
                 // fallback -- perhaps submit the input to an iframe and temporarily store
                 // them on the server until the user's session ends.
             }
         }
-    </script>
-    <!-- Jquery Core Js -->
-    <script src="/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
-    <script src="/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+        function manage(txt) {
+        var bt = document.getElementById('btSubmit');
+        if (txt.value != '') {
+            bt.disabled = false;
+        }
+        else {
+            bt.disabled = true;
+        }
+    }
 
-    <script src="/assets/bundles/mainscripts.bundle.js"></script><!-- Custom Js -->
+// 	Using ES6 feature.
+// 	let manage = (txt) => { 
+//     	let bt = document.getElementById('btSubmit');
+//         if (txt.value != '') {
+//             bt.disabled = false;
+//         }
+//         else {
+//             bt.disabled = true;
+//         }
+//     }
+        
+       </script>
 </body>
 
 

@@ -77,17 +77,17 @@ exports.alldoctors=async (req, res) =>{
  //all users
  exports.allusers=async (req, res) =>{
      const user =await db.User.findAll();
-    console.log(user.photo);
+  
     res.render ("admin/allusers",{ "users": user });
 }
 exports.getDoctorform = async (req,res )=>{
     
-    res.render("admin/DoctorProfile", {
+    res.render("admin/AddDoctor", {
         errors: req.flash("errors")
     
     });
 }
 //creat doctort
 exports.createDoctor = async (req,res) =>{
-
+    res.render("admin/contact")
 }
