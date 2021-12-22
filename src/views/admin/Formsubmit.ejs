@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add A Doctor </title>
+    <link rel="stylesheet" href="/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/plugins/footable-bootstrap/css/footable.bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/plugins/footable-bootstrap/css/footable.standalone.min.css">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/assets/css/style.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+</head>
+<body>
+    <section class="content">
+        <div class="body_scroll">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>Add A Doctor</h2>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0);">Doctor</a></li>
+                            <li class="breadcrumb-item active">Add Doctor</li>
+                        </ul>
+                        <button class="btn btn-primary btn-icon mobile_menu" type="button"><i class="zmdi zmdi-sort-amount-desc"></i></button>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            <div class="container-fluid">
+                <!-- Basic Validation -->
+                <div class="row clearfix">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>Add </strong>A Doctor</h2>
+                                <ul class="header-dropdown">
+                                   
+                                    <li class="remove">
+                                        <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="body">
+                                <div class="img">
+                                    <img src="/images/avatar.jpg" id="myimage" alt="user" name="image1" style="border: 1px solid #C400D7;
+                                border-radius: 50%;
+                                padding: 7px;
+                                height: 130px;
+                                width: 130px;
+                                
+                                ">
+                                    <i class="fa fa-camera" onclick="document.getElementById('file').click();"
+                                        style=" position: absolute;     top: 160px;
+                                left: 110px; padding: 3px;  background-color: white; border-radius: 50%; font-size: 20px;  border: 1px solid rgba(56, 53, 56, 0.986) ; cursor: pointer;"></i>
+                                </div>
+
+                                <form id="form_validation" method="POST" action="/api/DoctorCreate" enctype="multipart/form-data">
+                                    <div class="alert" style="font-size: 12; height: 25px; padding: 0; margin: 0px;">
+                                        <% if (errors !==""){%>
+                                              <% errors .forEach((item) =>{%>
+                                              <div class="alert-danger" style="display: inline; ">
+                                                    <%- item %>
+                                              </div>
+                                              <%})%>
+                                              <%}%>   
+                                  </div>
+                                    <input type="file" style="display: none; " name="image" id="file" >
+                                    <div class="form-group form-float ">
+                                        <input type="text" class="form-control" placeholder="Name" name="firstName" required>
+                                    </div>
+                             
+                                    <div class="form-group form-float">
+                                        <input type="text" class="form-control" placeholder="Last name" name="lastName" required>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <input type="email" class="form-control" placeholder="Email" name="email" required>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <input type="text" class="form-control" placeholder="phone" name="phone" required>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <input type="text" class="form-control" placeholder="Specialist" name="specialist" required>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <input type="number" class="form-control" placeholder="Age" name="age" min="20" max="65" required>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <input type="number" class="form-control" placeholder="role" name="role" min="1" max="2" required>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <input type="number" class="form-control" placeholder="Experience" name="experiece" min="2" max="40" required>
+                                    </div>
+                                    <div class="form-group form-float">
+                                        <textarea name="about" cols="30" rows="5" placeholder="Description" class="form-control no-resize" required></textarea>
+                                    </div>
+                                   
+                                  
+                                    <input class="btn btn-raised btn-primary waves-effect"  type="submit" id="mySubmit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+    </section>
+    <script>
+        document.getElementById('file').onchange = function (evt) {
+            var tgt = evt.target || window.event.srcElement,
+                files = tgt.files;
+    
+            // FileReader support
+            if (FileReader && files && files.length) {
+                var fr = new FileReader();
+                fr.onload = function () {
+                    document.getElementById("myimage").src = fr.result;
+                }
+                fr.readAsDataURL(files[0]);
+            }
+    
+            // Not supported
+            else {
+                console.log( "you did not upload your image");
+                // fallback -- perhaps submit the input to an iframe and temporarily store
+                // them on the server until the user's session ends.
+            }
+        }
+        var x = document.getElementById("mySubmit").disabled;
+        console.log(x);
+    </script>
+</body>
+</html>

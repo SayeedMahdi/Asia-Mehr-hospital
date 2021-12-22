@@ -1,13 +1,17 @@
 import db from "../models"
 const { validationResult } = require("express-validator");
 const newuser = require("../services/userServices");
+const newDoctor = require("../services/doctorservices")
 const authlog=require("../services/loginServices");
 //home page api
-exports.getHomepage = (req, res) => {
-    return res.render("homepage.ejs");
+exports.getHomepage = async(req, res) => {
+    const Doctors =await db.Doctors.findAll();
+    return res.render("homepage.ejs",{ "Doctors": Doctors });
 };
 //sign up form
 exports.signupform = (req, res) => {
+
+
     return res.render("signUp.ejs",{errors: req.flash("errors")});
 }
 //Rigister 
@@ -18,7 +22,7 @@ createUser = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        image1:req.body.image1
+        address:req.body.address
     }
     
     //cheack validtion
@@ -38,7 +42,7 @@ createUser = async (req, res) => {
         const user = req.body;
         const path=req.file.filename;
         const message = await newuser.createuser(user,path);
-        console.log(message);
+        
         return res.redirect("/api/home");
     } catch (e) {
         req.flash("errors", e)
@@ -72,7 +76,9 @@ exports.adminlogin= async(req,res)=>{
 }
 //Doctors get page
 exports.alldoctors=async (req, res) =>{
-    res.render ("admin/contact");
+    const doctors =await db.Doctors.findAll();
+    //all Doctors select from this
+    res.render ("admin/contact",{"doctors":doctors});
 }
  //all users
  exports.allusers=async (req, res) =>{
@@ -82,12 +88,38 @@ exports.alldoctors=async (req, res) =>{
 }
 exports.getDoctorform = async (req,res )=>{
     
-    res.render("admin/AddDoctor", {
+    res.render("admin/Formsubmit", {
         errors: req.flash("errors")
     
     });
 }
 //creat doctort
 exports.createDoctor = async (req,res) =>{
-    res.render("admin/contact")
+
+        //back to form elements
+      
+        
+        //cheack validtion
+        let arrresult = [];
+        let validerrrors = validationResult(req);
+        if (!validerrrors.isEmpty()) {
+            let error = Object.values(validerrrors.mapped());
+            error.forEach((item) => {
+    
+                arrresult.push(item.msg);
+    
+            });
+            req.flash("errors", arrresult);
+            return res.render("admin/Formsubmit", {  errors: req.flash("errors")});
+        }
+        try {
+            const Doctor = req.body;
+            const path=req.file.filename;
+            const message = await newDoctor.addDoctor(Doctor,path);
+            console.log(message);
+            return res.redirect("/api/admin");
+        } catch (e) {
+            req.flash("errors", e)
+            return res.render("admin/Formsubmit", {   errors: req.flash("errors") })
+        }
 }

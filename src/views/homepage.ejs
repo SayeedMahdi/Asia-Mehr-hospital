@@ -48,9 +48,7 @@
                             </button>
                         </div>
                     </nav>
-                    <div class="logo">
-                        <img src="/images/asia.png" alt="logo-website">
-                    </div>
+                   
                     <div class="intro">
                         <div class="intro-icon">
                             <h3 class="title">Specialist</h3>
@@ -177,46 +175,16 @@
             </div>
             <div class="slide">
                 <div class="my-slick-slide">
+                    <% Doctors.forEach(function (doctor) { %>
                     <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image-doctors">
+                        <img src="/usersimage/<%=doctor.photo %>" alt="image-doctors">
                         <div class="info-doctor">
-                            <span class="name">Dr. Hary Pham</span>
-                            <span class="speciality">Nerve</span>
+                            <span class="name"><%=doctor.firstName %> <%=doctor.lastName %></span>
+                            <span class="speciality"><%=doctor.specialist %></span>
                         </div>
-                        <span class="count-booking">1.000 bookings</span>
+                        <span class="count-booking">phone: <%=doctor.phone %></span>
                     </div>
-                    <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image-doctors">
-                        <div class="info-doctor">
-                            <span class="name">Dr. Hary Pham</span>
-                            <span class="speciality">Nerve</span>
-                        </div>
-                        <span class="count-booking">1.000 bookings</span>
-                    </div>
-                    <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image-doctors">
-                        <div class="info-doctor">
-                            <span class="name">Dr. Hary Pham</span>
-                            <span class="speciality">Nerve</span>
-                        </div>
-                        <span class="count-booking">1.000 bookings</span>
-                    </div>
-                    <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image-doctors">
-                        <div class="info-doctor">
-                            <span class="name">Dr. Hary Pham</span>
-                            <span class="speciality">Nerve</span>
-                        </div>
-                        <span class="count-booking">1.000 bookings</span>
-                    </div>
-                    <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image-doctors">
-                        <div class="info-doctor">
-                            <span class="name">Dr. Hary Pham</span>
-                            <span class="speciality">Nerve</span>
-                        </div>
-                        <span class="count-booking">1.000 bookings</span>
-                    </div>
+                    <% }) %>
                 </div>
             </div>
         </section>
@@ -230,7 +198,7 @@
             <div class="slide">
                 <div class="handbook-slide">
                     <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image the post">
+                        <img src="../images/speciality/speciality1.jpg" style="height: 100%;"  alt="image the post">
                         <div class="info-post">
                             <span class="title-post">My first post</span>
                             <div class="summary-content">Lorem Ipsum is simply dummy text of the printing and
@@ -240,24 +208,24 @@
                         </div>
                     </div>
                     <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image the post">
+                        <img src="../images/speciality/speciality1.jpg" style="height: 100%;" alt="image the post">
                         <div class="info-post">
                             <span class="title-post">My first post</span>
-                            <div class="summary-content">Lorem Ipsum is simply dummy text of the printing and
+                            <div class="summary-content" >Lorem Ipsum is simply dummy text of the printing and
                                 typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since
                                 the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
                                 specimen book.</div>
                         </div>
                     </div>
                     <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image the post">
+                        <img src="../images/speciality/speciality1.jpg" style="height: 100%;" alt="image the post">
                         <div class="info-post">
                             <span class="title-post">My first post</span>
                             <div class="summary-content">asdfasdf asdfl asfd lkasdfasdfasfd</div>
                         </div>
                     </div>
                     <div class="div-slide">
-                        <img src="../images/speciality/speciality1.jpg" alt="image the post">
+                        <img src="../images/speciality/speciality1.jpg" style="height: 100%;"  alt="image the post">
                         <div class="info-post">
                             <span class="title-post">My first post</span>
                             <div class="summary-content">asdfasdf asdfl asfd lkasdfasdfasfd</div>
