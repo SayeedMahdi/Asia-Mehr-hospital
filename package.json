@@ -4,8 +4,7 @@
   "description": "doctor appointment booking system nodejs mysql",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --exec babel-node src/server.js"
+    "start": "node --exec babel-node src/server.js"
   },
   "keywords": [
     "doctor",

@@ -6,6 +6,7 @@ const cookie_parser =require("cookie-parser");
 const connect_flash=require("connect-flash");
 const express_session=require("express-session");
 const configSession =require("./config/session")
+const PORT = process.env.PORT || 8000;
 import passport from "passport";
 
 let app = express();
@@ -29,8 +30,7 @@ configViewEngine(app);
 //init all web routes
 app.use("/api",initWebRoutes)
 
-let port = process.env.PORT || 8000;
 
-app.listen(port, ()=>{
+app.listen(PORT, ()=>{
    console.log(`App is running at the port ${port}`);
 });
