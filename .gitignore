@@ -1,5 +1,6 @@
-/src/node_modules
+/node_modules
 /vendor
 /.idea
 .idea/
 .env
+/public/usersimage
