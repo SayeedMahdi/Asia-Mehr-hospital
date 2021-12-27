@@ -1,4 +1,4 @@
-import db from "../models"
+const db = require("../models")
 const bcrypt=require("bcrypt");
 let findByEmail = (emailIninput) => {
     console.log(emailIninput);

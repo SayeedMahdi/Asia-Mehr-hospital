@@ -1,4 +1,4 @@
-import db from "../models"
+const db = require("../models") ;
 const { validationResult } = require("express-validator");
 const newuser = require("../services/userServices");
 const newDoctor = require("../services/doctorservices")
@@ -6,7 +6,7 @@ const authlog=require("../services/loginServices");
 //home page api
 exports.getHomepage = async(req, res) => {
     const Doctors =await db.Doctors.findAll();
-    return res.render("homepage.ejs",{ "Doctors": Doctors });
+    return res.render("homepage",{ "Doctors": Doctors });
 };
 //sign up form
 exports.signupform = (req, res) => {

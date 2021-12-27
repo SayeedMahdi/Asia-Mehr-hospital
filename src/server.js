@@ -1,12 +1,12 @@
+const initWebRoutes = require("./routes/web");
+const  configViewEngine =require("./config/viewEngine");
 require("dotenv").config();
-import express from "express";
-import configViewEngine from "./config/viewEngine";
-import initWebRoutes from "./routes/web";
+const express = require("express");
 const cookie_parser =require("cookie-parser");
 const connect_flash=require("connect-flash");
-const express_session=require("express-session");
+
 const configSession =require("./config/session")
-import passport from "passport";
+const passport = require("passport");
 
 let app = express();
 

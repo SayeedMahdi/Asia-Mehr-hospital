@@ -1,14 +1,14 @@
 require('express-async-errors');
-import express from "express";
-import homepageController from "../controllers/homepageController";
-import auth from "../validation/authvalidtion";
-import initPassportLocal from "../controllers/passport/passportLocal"
-import passport from "passport";
-import authcontroler, { checklogin, checklout } from "../controllers/authcontrler";
-import initfacebook from "../controllers/passport/facebookStrategy"
-import initgoogleauth from "../controllers/passport/googleStrategy"
-import upload from "../middleware/imgecontroler"
-require("express")
+const express = require("express");
+const passport =require("passport") ;
+const homepageController = require( "../controllers/homepageController");
+const auth = require( "../validation/authvalidtion");
+const initPassportLocal = require( "../controllers/passport/passportLocal")
+const authcontroler= require( "../controllers/authcontrler");
+const initfacebook = require( "../controllers/passport/facebookStrategy")
+const initgoogleauth = require( "../controllers/passport/googleStrategy")
+const upload = require( "../middleware/imgecontroler")
+
 /*
 init all web routes
  */

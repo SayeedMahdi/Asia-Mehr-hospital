@@ -1,6 +1,6 @@
-import passport from "passport";
-import passportlocal from "passport-local";
-import loginServices from "../../services/loginServices";
+const passport =require( "passport");
+const passportlocal =require( "passport-local");
+const loginServices =require( "../../services/loginServices");
 
 let LocalStrategy=passportlocal.Strategy;
 //initialize user
