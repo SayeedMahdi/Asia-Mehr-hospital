@@ -46,6 +46,9 @@
     "babel-preset-env": "^1.7.0",
     "nodemon": "^2.0.14"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SayeedMahdi/doctors-appointment-booking-system.git"
